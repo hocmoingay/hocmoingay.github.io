@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">7</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">9b4ee845-5275-46d1-bb6d-96354cb80a5e</dc:identifier>
+        <dc:title>Sự-Sống-Thật-Trong-Thien-Chua-3-6-1990-1991-by-Vassula-Ryden</dc:title>
+        <dc:creator opf:file-as="Ryden,Vassula" opf:role="aut">Vassula Ryden</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.12.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:language>en</dc:language>
+        <meta name="calibre:series" content="Sự Sống Thật Trong Thien Chúa"/>
+        <meta name="calibre:series_index" content="1"/>
+        <meta name="calibre:timestamp" content="2025-02-20T04:42:00+00:00"/>
+        <meta name="calibre:title_sort" content="Sự-Sống-Thật-Trong-Thien-Chua-3-6-1990-1991-by-Vassula-Ryden"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>

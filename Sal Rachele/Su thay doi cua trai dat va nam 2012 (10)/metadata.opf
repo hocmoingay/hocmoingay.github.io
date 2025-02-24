@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">10</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">18583d98-6e4a-4dbe-bc52-736661adccae</dc:identifier>
+        <dc:title>Sự thay đổi của trái đất và năm 2012 quyển 2</dc:title>
+        <dc:creator opf:file-as="Rachele, Sal" opf:role="aut">Sal Rachele</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.12.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:language>en</dc:language>
+        <meta name="calibre:series" content="Sự thay đổi của trái đất và năm 2012"/>
+        <meta name="calibre:series_index" content="2"/>
+        <meta name="calibre:timestamp" content="2025-02-20T07:47:49.102954+00:00"/>
+        <meta name="calibre:title_sort" content="Sự thay đổi của trái đất và năm 2012 quyển 2"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>

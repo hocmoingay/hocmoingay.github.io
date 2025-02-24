@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/vanjs-org/van/public/van-1.5.3.nomodule.min.js"></script>
+    <script src="config.js"></script>
+    <script>
+        // const BASE = '/metadata/';
+        // const CONFIG = {
+        //     sitename : 'Calibre flyer',
+        //     limit: 12,
+        //     books: BASE + 'books.json',
+        //     authors: BASE + 'authors.json',
+        //     bookData: BASE + 'data.json',
+        // };
+        const allAuthors = httpGet(CONFIG.authors);
+        const books = getBooks();
+
+        function getBooks() {
+            return httpGet(CONFIG.books);
+        }
+        function author(sort) {
+            var a = allAuthors.filter(function (item) { return item.sort == sort; });
+            return a && a.length > 0 ? a[0] : null;
+        }
+        function author_name(sort) {
+            var a = author(sort);
+            if (!a) return sort;
+            return a.name;
+        }
+
+        function getFiles(bookId) {
+            let bookData = null;
+            if (!bookData) {
+                bookData = httpGet(CONFIG.bookData);
+            }
+
+            var files = bookData.filter(function (item) {
+                return item.book == bookId;
+            });
+            return files;
+        }
+
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false); // false for synchronous request
+            xmlHttp.send(null);
+            return JSON.parse(xmlHttp.responseText);
+        }
+    </script>
+</head>
+
+<body class="min-h-screen bg-gray-100 p-6">
+    <div id="head" class="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-md"></div>
+    <div id="app" class="max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-md"></div>
+    <div id="model"></div>
+    <script>
+        const { a, div, h1, h2, h3, input, img, p, button } = van.tags;
+        const searchQuery = van.state("");
+        let page = 1;
+        function openBook(book) {
+            var files = getFiles(book.id)
+            var model_content =
+                div(
+                    {
+                        class: "bg-white p-6 rounded-xl shadow-lg max-w-md w-full relative"
+                    },
+                    button({
+                        class: "absolute top-2 right-2 text-gray-500 text-xl",
+                        onclick: closeModal
+                    }, "×"),
+                    img({ src: `/${book.path}/cover.jpg`, alt: `${book.title} Cover`, class: "w-200 h-300 object-cover rounded-md mx-auto mb-4" }),
+                    h2({ class: "text-xl font-bold text-gray-900 text-center" }, book.title),
+                    p({ class: "text-sm text-gray-600 text-center" }, 'by ' + author_name(book.author_sort)),
+                );
+            if (files) {
+                van.add(model_content, h3({ 'class': ' text-xl' }, 'Download'));
+                for (var i in files) {
+                    var file = files[i];
+                    var fname = '/' + book.path + '/' + file.name + '.' + file.format.toLowerCase();
+                    van.add(model_content, a({ 'href': fname, 'class': 'text-blue-600' }, file.name + '.' + file.format));
+                };
+            }
+            var model = div(
+                {
+                    class: "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+                },
+                model_content
+            );
+
+            closeModal();
+            van.add(document.getElementById("model"), model);
+        }
+
+        function closeModal() {
+            document.getElementById("model").innerHTML = '';
+        }
+        function BookList() {
+            var limit = CONFIG.limit;
+            var offset = (page - 1) * limit;
+            var total = books.length;
+            var showbooks = books;
+            if (searchQuery.val) {
+                showbooks = books.filter(function (item) {
+                    return item.title.toLowerCase().indexOf(searchQuery.val) != -1;
+                });
+                total = showbooks.length;
+            }
+
+            var booksOfPage = showbooks.slice(offset, offset + limit);
+            var containerbook = div(
+                div(
+                    { id: "book-list", class: "grid grid-cols-2 md:grid-cols-3 gap-6" },
+                    booksOfPage.map(book =>
+                        div(
+                            {
+                                class: "p-4 bg-gray-50 rounded-xl shadow-sm flex flex-col items-center text-center",
+                            },
+                            a({ 'href': '#book/' + book.id, onclick: () => openBook(book) }, img({ src: `/${book.path}/cover_min.jpg`, alt: `${book.title} Cover`, class: "w-20 h-28 object-cover rounded-md" })),
+                            div(
+                                h2({ class: "text-lg font-semibold text-gray-900" }, book.title),
+                                p({ class: "text-sm text-gray-600" }, 'by ', a({ 'href': '#' + book.author_sort }, author_name(book.author_sort))),
+                                // p({ class: "text-gray-700 mt-1" }, book.description)
+                            )
+                        )
+                    )
+                )
+            );
+
+            van.add(containerbook, div(
+                { 'class': 'mt-4' },
+                offset > 0 ? a({
+                    class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800',
+                    href: 'javascript:void(0)',
+                    onclick: function () {
+                        page--;
+                        document.getElementById("app").innerHTML = '';
+                        van.add(document.getElementById("app"), BookList());
+                        window.scrollTo(1, 1);
+                    }
+                }, 'Prev page') : null,
+                offset + limit < total ? a({
+                    class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800',
+                    href: 'javascript:void(0)',
+                    onclick: function () {
+                        page++;
+                        document.getElementById("app").innerHTML = '';
+                        van.add(document.getElementById("app"), BookList());
+                        window.scrollTo(1, 1);
+                    }
+                }, 'Next page') : null
+            ));
+            return containerbook;
+        }
+
+        van.add(document.getElementById("head"),
+            h1({ class: "text-2xl font-bold mb-4 text-gray-800" }, CONFIG.sitename),
+            input({
+                type: "text",
+                placeholder: "Search books...",
+                class: "w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500",
+                oninput: function (e) {
+                    page = 1;
+                    searchQuery.val = e.target.value.toLowerCase()
+                    document.getElementById("app").innerHTML = '';
+                    van.add(document.getElementById("app"), BookList());
+                    window.scrollTo(1, 1);
+                }
+            }),);
+        van.add(document.getElementById("app"), BookList());
+        document.head.getElementsByTagName("title")[0].textContent = CONFIG.sitename;
+        document.addEventListener('click', function(event) {
+            if (event.target.tagName == 'DIV' && event.target.className.match(/fixed/)) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

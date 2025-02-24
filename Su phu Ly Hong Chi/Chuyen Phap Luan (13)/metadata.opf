@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">13</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">f8005ac9-a117-4f0a-8ccf-432932ee30c2</dc:identifier>
+        <dc:title>Chuyển Pháp Luân</dc:title>
+        <dc:creator opf:file-as="Chí, Sư phụ Lý Hồng" opf:role="aut">Sư phụ Lý Hồng Chí</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.12.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>2020-02-14T17:00:00+00:00</dc:date>
+        <dc:description>Sư phụ Lý Hồng Chí</dc:description>
+        <dc:publisher>Sư phụ Lý Hồng Chí</dc:publisher>
+        <dc:identifier opf:scheme="URI">FUPNERYp-</dc:identifier>
+        <dc:language>eng</dc:language>
+        <dc:subject>Chuyển Pháp Luân</dc:subject>
+        <meta name="calibre:timestamp" content="2025-02-21T01:25:22.057832+00:00"/>
+        <meta name="calibre:title_sort" content="Chuyển Pháp Luân"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>
