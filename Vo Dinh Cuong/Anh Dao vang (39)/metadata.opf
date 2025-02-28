@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">39</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">ed0837b8-3da7-47e0-a668-8da3560713d7</dc:identifier>
+        <dc:title>Ánh Đạo vàng</dc:title>
+        <dc:creator opf:file-as="Cường, Võ Đình" opf:role="aut">Võ Đình Cường</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.12.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:language>en</dc:language>
+        <meta name="calibre:timestamp" content="2025-02-28T09:52:21.928862+00:00"/>
+        <meta name="calibre:title_sort" content="Ánh Đạo vàng"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>
