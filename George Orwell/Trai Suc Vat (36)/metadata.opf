@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">36</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">b1e054af-3c67-41bd-80c7-be329f945120</dc:identifier>
+        <dc:title>Trại Súc Vật</dc:title>
+        <dc:creator opf:file-as="Orwell, George" opf:role="aut">George Orwell</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.12.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>2011-04-21T17:00:00+00:00</dc:date>
+        <dc:publisher>Nguy?n Kim V? - nguyenkimvy@gmail.com</dc:publisher>
+        <dc:language>eng</dc:language>
+        <dc:subject>truy?n dài</dc:subject>
+        <meta name="calibre:timestamp" content="2025-02-28T01:28:20.060874+00:00"/>
+        <meta name="calibre:title_sort" content="Trại Súc Vật"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>

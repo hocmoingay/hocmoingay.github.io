@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
     <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
-        <dc:identifier opf:scheme="calibre" id="calibre_id">22</dc:identifier>
-        <dc:identifier opf:scheme="uuid" id="uuid_id">b7eb1640-c3d1-462e-8c11-0632af527682</dc:identifier>
-        <dc:title>LIỄU PHÀM TỨ HUẤN</dc:title>
-        <dc:creator opf:file-as="Ấn Quang, Đại Sư" opf:role="aut">Ấn Quang Đại Sư</dc:creator>
+        <dc:identifier opf:scheme="calibre" id="calibre_id">33</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">90810112-b4e0-411b-af78-2b97b609376b</dc:identifier>
+        <dc:title>Tuyết sơn phi hồ</dc:title>
+        <dc:creator opf:file-as="Dung, Kim" opf:role="aut">Kim Dung</dc:creator>
         <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.12.0) [https://calibre-ebook.com]</dc:contributor>
         <dc:date>0101-01-01T00:00:00+00:00</dc:date>
         <dc:language>en</dc:language>
-        <meta name="calibre:timestamp" content="2025-02-24T01:59:45+00:00"/>
-        <meta name="calibre:title_sort" content="LIỄU PHÀM TỨ HUẤN"/>
+        <meta name="calibre:timestamp" content="2025-02-28T01:23:32.734100+00:00"/>
+        <meta name="calibre:title_sort" content="Tuyết sơn phi hồ"/>
     </metadata>
     <guide>
         <reference type="cover" title="Cover" href="cover.jpg"/>
