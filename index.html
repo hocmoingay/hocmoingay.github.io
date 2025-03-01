@@ -18,15 +18,23 @@
         //     authors: BASE + 'authors.json',
         //     bookData: BASE + 'data.json',
         // };
-        const allAuthors = httpGet(CONFIG.authors);
+        const allAuthors = createHash(httpGet(CONFIG.authors), 'sort');
         const books = getBooks();
+
+        function createHash(arr, key) {
+            var ret = {};
+            arr.forEach(element => {
+                ret[element[key]] = element;
+            });
+            return ret;
+        }
 
         function getBooks() {
             return httpGet(CONFIG.books);
         }
         function author(sort) {
-            var a = allAuthors.filter(function (item) { return item.sort == sort; });
-            return a && a.length > 0 ? a[0] : null;
+            var a = allAuthors[sort];
+            return a ? a : null;
         }
         function author_name(sort) {
             var a = author(sort);
@@ -63,6 +71,45 @@
         const { a, div, h1, h2, h3, input, img, p, button } = van.tags;
         const searchQuery = van.state("");
         let page = 1;
+
+        function try_to_search(searchText) {
+            start_search();
+            setTimeout(function () {
+                document.body.querySelector('#head input').value = searchText;
+                searchQuery.val = searchText.toLowerCase()
+                document.getElementById("app").innerHTML = '';
+                van.add(document.getElementById("app"), BookList());
+                window.scrollTo(1, 1);
+                close_search();
+            }, 500);
+        }
+
+        function start_search() {
+            var model = div({class: "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"}, div({class: "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"}, div({class: "bg-white p-6 rounded-xl shadow-lg max-w-md w-full relative"},'Search...')));
+            document.getElementById("model").innerHTML = '';
+            van.add(document.getElementById("model"), model);
+        }
+
+        function close_search() {
+            document.getElementById("model").innerHTML = '';
+        }
+
+        /*init*/
+        function init() {
+            if (books) {
+                for (var i in books) {
+                    var _book = books[i];
+                    books[i].search = _book.title.toLowerCase() + ' ' +  author_name(_book.author_sort).toLowerCase();
+                }
+            }
+            var _search = decodeURIComponent(location.hash).split('#search=')[1];
+            if (_search) try_to_search(_search);
+        }
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            init();
+        });
+
         function openBook(book) {
             var files = getFiles(book.id)
             var model_content =
@@ -76,10 +123,10 @@
                     }, "×"),
                     img({ src: `/${book.path}/cover.jpg`, alt: `${book.title} Cover`, class: "w-200 h-300 object-cover rounded-md mx-auto mb-4" }),
                     h2({ class: "text-xl font-bold text-gray-900 text-center" }, book.title),
-                    p({ class: "text-sm text-gray-600 text-center" }, 'by ' + author_name(book.author_sort)),
+                    a({ href :'#search=' + author_name(book.author_sort), class: "text-sm text-gray-600 text-center" }, 'by ' + author_name(book.author_sort)),
                 );
             if (files) {
-                van.add(model_content, h3({ 'class': ' text-xl' }, 'Download'));
+                van.add(model_content, h3({ 'class': ' text-xl' }, '⬇️ Download'));
                 for (var i in files) {
                     var file = files[i];
                     var fname = '/' + book.path + '/' + file.name + '.' + file.format.toLowerCase();
@@ -107,7 +154,7 @@
             var showbooks = books;
             if (searchQuery.val) {
                 showbooks = books.filter(function (item) {
-                    return item.title.toLowerCase().indexOf(searchQuery.val) != -1;
+                    return item.search.indexOf(searchQuery.val.toLowerCase()) != -1;
                 });
                 total = showbooks.length;
             }
@@ -124,7 +171,7 @@
                             a({ 'href': '#book/' + book.id, onclick: () => openBook(book) }, img({ src: `/${book.path}/cover_min.jpg`, alt: `${book.title} Cover`, class: "w-20 h-28 object-cover rounded-md" })),
                             div(
                                 h2({ class: "text-lg font-semibold text-gray-900" }, book.title),
-                                p({ class: "text-sm text-gray-600" }, 'by ', a({ 'href': '#' + book.author_sort }, author_name(book.author_sort))),
+                                p({ class: "text-sm text-gray-600" }, 'by ', a({ 'href': '#search=' + author_name(book.author_sort), onclick: function() { try_to_search(author_name(book.author_sort)); } }, author_name(book.author_sort))),
                                 // p({ class: "text-gray-700 mt-1" }, book.description)
                             )
                         )
@@ -143,7 +190,7 @@
                         van.add(document.getElementById("app"), BookList());
                         window.scrollTo(1, 1);
                     }
-                }, 'Prev page') : null,
+                }, 'Trang trước') : null,
                 offset + limit < total ? a({
                     class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800',
                     href: 'javascript:void(0)',
@@ -153,13 +200,14 @@
                         van.add(document.getElementById("app"), BookList());
                         window.scrollTo(1, 1);
                     }
-                }, 'Next page') : null
+                }, 'Trang tiếp theo') : null,
+                searchQuery.val ? a({href:'/'}, 'Bỏ tìm kiếm') : null
             ));
             return containerbook;
         }
 
         van.add(document.getElementById("head"),
-            h1({ class: "text-2xl font-bold mb-4 text-gray-800" }, CONFIG.sitename),
+            h1({ class: "text-2xl font-bold mb-4 text-gray-800" }, a({href:'/'}, CONFIG.sitename) ),
             input({
                 type: "text",
                 placeholder: "Search books...",
