@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">42</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">fb45c1b1-ba8c-4b87-b79b-0a8d78ae29ce</dc:identifier>
+        <dc:title>Binh Pháp Tôn Tử</dc:title>
+        <dc:creator opf:file-as="vũ, Tôn" opf:role="aut">Tôn vũ</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.6.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:description>&lt;p&gt;Tôn Tử binh pháp -  The Art of War (tạm dịch: Nghệ thuật chiến tranh) và còn được gọi là Binh pháp Ngô Tôn Tử, là sách chiến lược chiến thuật tiếng Hoa do Tôn Vũ soạn thảo vào năm 512 TCN đời Xuân Thu&lt;/p&gt;</dc:description>
+        <dc:publisher>http://downloadsach.com</dc:publisher>
+        <dc:language>vie</dc:language>
+        <dc:subject>Political</dc:subject>
+        <dc:subject>Lang:vi</dc:subject>
+        <meta name="calibre:timestamp" content="2025-03-14T14:19:11.375345+00:00"/>
+        <meta name="calibre:title_sort" content="Binh Pháp Tôn Tử"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>

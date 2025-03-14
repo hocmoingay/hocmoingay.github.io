@@ -13,6 +13,7 @@ function getBooks() {
     var bs = httpGet(CONFIG.books);
     for (var i in bs) {
         bs[i].author = author_name(bs[i].author_sort);
+        bs[i].img = `/${bs[i].path}/cover_min.jpg`;
     }
     return bs;
 }
