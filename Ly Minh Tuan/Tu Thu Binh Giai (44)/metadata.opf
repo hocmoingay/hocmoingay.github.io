@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">44</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">b1d7a592-bca2-477a-a3d5-a2b7e7498e43</dc:identifier>
+        <dc:title>Tứ Thư Bình Giải</dc:title>
+        <dc:creator opf:file-as="Tuấn, Lý Minh" opf:role="aut">Lý Minh Tuấn</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (7.6.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>0101-01-01T00:00:00+00:00</dc:date>
+        <dc:description>Bộ sách Tứ Thư của Nho giáo ra đời cách nay khoảng hơn 2.000 năm, đã trải qua bao sóng gió theo những giai đoạn thăng trầm của lịch sử Trung Hoa. Lần thì bị Tần Thủy Hoàng đốt, lần thì bị tiêu tan trong các cuộc nội chiến triền miên của Trung Hoa. Do vậy khó tránh được nạn "tam sao thất bản". Đến đời nhà Tống, bộ sách này mới được các danh Nho tu chỉnh.&lt;BR&gt;Tứ Thư Bình Giải là bộ sách đồ sộ lần đầu tiên được biên soạn bao gồm đủ bốn quyển sách lớn của nền văn học cổ Trung Hoa: Luận ngữ, Mạnh tử, Đại học và Trung dung. Soạn giả không chỉ làm công việc chuyển dịch, mà đặc biệt còn vận dụng những kiến thức chuyên môn của nhiều năm giảng dạy để phân tích và nêu bật từng vấn đề, trong mối quan hệ với xã hội hiện đại. Tứ Thư Bình Giải sẽ giới thiệu đến người đọc toàn bộ những gì tinh hoa và tiêu biểu nhất của 4 quyển sách quý, vốn đã từng được xem là nền tảng của hệ thống giáo dục Trung Hoa qua nhiều ngàn năm nay.&lt;BR&gt;Là một bậc thầy thuộc thế hệ đi trước, nay đã bước sang độ tuổi cổ lai hy, soạn giả Lý Minh Tuấn đã biên soạn công trình này với tấm lòng yêu người thương đời rất đáng trân trọng của một nhà giáo dục đã nhiều năm đứng trên bục giảng. Tôi rất vui khi được hân hạnh giới thiệu với quý độc giả bộ sách này và hy vọng nó sẽ góp phần mang đến những giá trị tốt đẹp hơn cho cuộc sống, bởi xét cho cùng thì dù trong bất cứ thời đại nào, ý nghĩa quan trọng nhất của cuộc sống con người vẫn luôn là những giá trị đạo đức và tinh thần tốt đẹp chứ không phải là theo đuổi sự hưởng thụ vật chất. Và với ý nghĩa này thì việc khơi dậy những giá trị đạo đức tốt đẹp trong truyền thống Nho giáo hẳn sẽ mang lại những tác động tích cực nhất định trong việc giúp cho mỗi ngươi chúng ta hướng đến một đời sống tốt đẹp hơn.&lt;BR&gt;</dc:description>
+        <dc:publisher>NXB Tôn Giáo</dc:publisher>
+        <dc:language>vie</dc:language>
+        <dc:subject>Education</dc:subject>
+        <meta name="calibre:timestamp" content="2025-03-15T13:40:27.205905+00:00"/>
+        <meta name="calibre:title_sort" content="Tứ Thư Bình Giải"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>
